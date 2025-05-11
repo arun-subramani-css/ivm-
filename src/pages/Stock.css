@@ -1,0 +1,301 @@
+/* Base Styles */
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+.stock-page {
+  padding: var(--spacing-xl);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.stock-page h1 {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  font-size: var(--text-3xl);
+  color: var(--text-primary);
+}
+
+/* Layout */
+.stock-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.add-product-section,
+.inventory-section {
+  background: var(--bg-secondary);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+}
+
+.add-product-section h2,
+.inventory-section h2 {
+  color: var(--text-primary);
+  font-size: var(--text-2xl);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Form Styles */
+.add-product-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  font-size: var(--text-base);
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.add-button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.add-button:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Error Message */
+.error-message {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 1rem;
+  border: 1px solid #fca5a5;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+/* Inventory Table */
+.inventory-table {
+  margin-top: var(--spacing-lg);
+  overflow-x: auto;
+}
+
+.inventory-table table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.inventory-table th,
+.inventory-table td {
+  padding: var(--spacing-md);
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.inventory-table th {
+  background-color: var(--bg-primary);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.inventory-table tr:hover td {
+  background-color: var(--bg-primary);
+}
+
+/* Actions */
+.edit-button,
+.delete-button {
+  padding: var(--spacing-xs) var(--spacing-md);
+  border: none;
+  border-radius: var(--radius);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.edit-button {
+  background-color: var(--warning-color);
+  color: var(--text-primary);
+  margin-right: var(--spacing-xs);
+}
+
+.edit-button:hover {
+  background-color: #fbbf24;
+}
+
+.delete-button {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #dc2626;
+}
+
+/* No Product Message */
+.no-products-message {
+  text-align: center;
+  background-color: #f1f5f9;
+  padding: 2rem;
+  border-radius: 12px;
+  color: #64748b;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .stock-page {
+    padding: var(--spacing-md);
+  }
+
+  .stock-container {
+    grid-template-columns: 1fr;
+  }
+
+  .add-product-section,
+  .inventory-section {
+    padding: var(--spacing-lg);
+  }
+}
+
+/* Add these styles to your existing Stock.css */
+
+.form-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+.cancel-button {
+  background-color: var(--text-secondary);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.cancel-button:hover {
+  background-color: var(--text-primary);
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: var(--bg-secondary);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  max-width: 400px;
+  width: 90%;
+}
+
+.modal h3 {
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+}
+
+.modal p {
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-secondary);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-md);
+}
+
+/* Loading and Empty States */
+.loading-state,
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-xl);
+  color: var(--text-secondary);
+  background-color: var(--bg-primary);
+  border-radius: var(--radius);
+  margin: var(--spacing-lg) 0;
+}
+
+/* Error Message */
+.error-message {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: var(--spacing-md);
+  border-radius: var(--radius);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Table Actions */
+.inventory-table td:last-child {
+  white-space: nowrap;
+}
+
+.edit-button,
+.delete-button {
+  padding: var(--spacing-xs) var(--spacing-md);
+  border: none;
+  border-radius: var(--radius);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.edit-button {
+  background-color: var(--warning-color);
+  color: var(--text-primary);
+  margin-right: var(--spacing-xs);
+}
+
+.edit-button:hover {
+  background-color: #fbbf24;
+}
+
+.delete-button {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #dc2626;
+}
